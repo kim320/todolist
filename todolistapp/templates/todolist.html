@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+
+{% block contents %}
+
+<main role="main" class="container">
+    <div class="row">
+        <div class="col-md-12">
+            
+        { for blog in posts }
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col d-flex flex-column position-static">
+                    <div class="accordion" id="accordionExample">
+                        <div class="card-header" id="headingOne"> 제목 <i class="fa fa-edit"></i><i class="fa fa-trash"></i><i class="fa fa-check-square"></i><i class="fa fa-square"></i>
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                                
+                        </div>
+                          
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                                내용
+                            </div>
+                        </div>
+                               
+                    </div>
+                </div>
+            </div>
+        { endfor }
+        
+        </div>
+    </div>
+</main>
+  
+
+{% endblock %}
