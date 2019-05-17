@@ -61,7 +61,7 @@
     
     <div class="nav-scroller py-2 mb-2">
         <nav class="nav d-flex justify-content-between">
-            <h4><a class="p-2 text-danger font-weight-bold" href="{% url 'todolist' %}">ALL()</a></h5>
+            <h4><a class="p-2 text-danger font-weight-bold" href="{% url 'todolist' %}">ALL({{todolists.count}})</a></h5>
             <h4><a class="p-2 text-danger font-weight-bold" href="#">TODO()</a></h5>
             <h4><a class="p-2 text-danger font-weight-bold" href="#">DONE()</a></h5>
         </nav>
@@ -72,7 +72,7 @@
 
 {% block contents %}
 
-{% endblock%}
+{% endblock %}
 
 
 <footer class="pt-5 text-center">
