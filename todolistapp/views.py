@@ -15,3 +15,13 @@ def create(request):
 
     todolist.save()
     return redirect('/')
+"""
+def edit(request, todolist_id):
+    todolist = Todolist.objects.get(pk=todolist_id)
+    return redirect('/')
+"""
+
+def destroy(request, todolist_id):
+    todolist = Todolist.objects.get(pk=todolist_id)
+    todolist.delete()
+    return redirect('/')

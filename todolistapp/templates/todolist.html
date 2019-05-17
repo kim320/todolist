@@ -10,7 +10,7 @@
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col d-flex flex-column position-static">
                     <div class="accordion" id="accordionExample">
-                        <div class="card-header" id="headingOne"> {{todolist.title}} <i class="fa fa-edit"></i><i class="fa fa-trash"></i><i class="fa fa-check-square"></i><i class="fa fa-square"></i>
+                        <div class="card-header" id="headingOne"> {{todolist.title}}  <i class="fa fa-edit"></i> <a href="{% url 'destroy' todolist.id %}"> <i class="fa fa-trash"></i> </a> <i class="fa fa-check-square"></i><i class="fa fa-square"></i>
                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 <i class="fa fa-caret-down"></i>
                             </button>
