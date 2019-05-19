@@ -7,75 +7,60 @@
         <div class="col-md-12">
             
         {% for todolist in todolists.all %}
-            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                <div class="col d-flex flex-column position-static">
-                    <div class="accordion" id="accordionExample">
-                        <div class="card-header" id="headingOne">
-                            <h3>
-                                <button class="btn btn-link" type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" 
-                                    width="48" height="48" 
-                                    viewBox="0 0 192 192" style=" fill:#000000;">
-                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none"></path><g><g id="surface1"><path d="M148,24h-104c-11.04688,0 -20,8.95312 -20,20v104c0,11.04688 8.95312,20 20,20h104c11.04688,0 20,-8.95312 20,-20v-104c0,-11.04688 -8.95312,-20 -20,-20z" fill="#e74c3c"></path><path d="M44,44h104v104h-104z" fill="#ffffff"></path></g></g></g></svg>
-                                </button>
-                                <button class="btn btn-link" type="button" >
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                    width="48" height="48"
-                                    viewBox="0 0 192 192"
-                                    style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none"></path><g><g id="surface1"><path d="M148,24h-104c-11.04688,0 -20,8.95312 -20,20v104c0,11.04688 8.95312,20 20,20h104c11.04688,0 20,-8.95312 20,-20v-104c0,-11.04688 -8.95312,-20 -20,-20z" fill="#e74c3c"></path><path d="M44,44h104v104h-104z" fill="#ffffff"></path><path d="M53.42188,93.75l11.3125,-11.3125l33.9375,33.95312l-11.3125,11.3125z" fill="#038c8c"></path><path d="M75.71875,116.0625l50.92187,-50.92188l11.9375,11.9375l-50.90625,50.92188z" fill="#038c8c"></path></g></g></g></svg>
-                                </button>
-                                {{todolist.title}}
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                    width="48" height="48"
-                                    viewBox="0 0 192 192"
-                                    style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none"></path><g fill="#038c8c"><g id="surface1"><path d="M96,136l72,-80h-144z"></path></g></g></g></svg>
-                                </button>
-                                {% if todolist.due_date == None %}
-
-                                {% else %}
-                                    {{todolist.due_date}}
-                                {% endif %}
-
-                                {% if todolist.overdue == True %}
-                                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                    width="48" height="48"
-                                    viewBox="0 0 192 192"
-                                    style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none"></path><g id="original-icon" fill="#e74c3c"><path d="M50.35938,12.01562l-36.76562,30.92188l10.29687,12.23438l36.76562,-30.92188zM141.64062,12.01562l-10.29687,12.23438l36.76562,30.92188l10.29687,-12.23438zM96,32c-39.768,0 -72,32.232 -72,72c0,39.768 32.232,72 72,72c39.768,0 72,-32.232 72,-72c0,-39.768 -32.232,-72 -72,-72zM96,48c30.928,0 56,25.072 56,56c0,30.928 -25.072,56 -56,56c-30.928,0 -56,-25.072 -56,-56c0,-30.928 25.072,-56 56,-56zM88,64v52.9375l36.42187,18.21874l7.15626,-14.3125l-27.57813,-13.78126v-43.0625z"></path></g></g></svg>
-                                {% endif %}
-
-                                {% if todolist.level == 'A' %}
-                                    
-                                {% elif todolist.level == 'B' %}
-                                    
-                                {% else%}
-
-                                {% endif %}
-                            </h3>
-                        </div>
-                          
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample"> 
-                            <div class="card-body">
-                                <h5>{{todolist.content}}</h5>
-                                <div class="text-right">
-                                    <a href="{% url 'edit' todolist.id %}">
-                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                        width="48" height="48"
-                                        viewBox="0 0 192 192"
-                                        style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none"></path><g fill="#038c8c"><path d="M147.3125,16c-2.048,0 -4.09625,0.78375 -5.65625,2.34375l-16,16l-11.3125,11.3125l-90.34375,90.34375v32h32l117.65625,-117.65625c3.128,-3.128 3.128,-8.1925 0,-11.3125l-20.6875,-20.6875c-1.56,-1.56 -3.60825,-2.34375 -5.65626,-2.34375zM147.3125,35.3125l9.37501,9.375l-10.34375,10.34375l-9.375,-9.375zM125.65625,56.96875l9.375,9.375l-85.65625,85.65625h-9.375v-9.375z"></path></g></g></svg>
-                                    </a> 
-                                    <a href="{% url 'destroy' todolist.id %}"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                        width="48" height="48"
-                                        viewBox="0 0 192 192"
-                                        style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none"></path><g fill="#e74c3c"><path d="M40,24c-8.84,0 -16,7.16 -16,16v112c0,8.84 7.16,16 16,16h112c8.84,0 16,-7.16 16,-16v-112c0,-8.84 -7.16,-16 -16,-16zM40,40h112v112h-112zM67.28125,56l-11.28125,11.28125l28.71875,28.71875l-28.71875,28.71875l11.28125,11.28125l28.71875,-28.71875l28.71875,28.71875l11.28125,-11.28125l-28.71875,-28.71875l28.71875,-28.71875l-11.28125,-11.28125l-28.71875,28.71875z"></path></g></g></svg>
-                                    </a>
-                            </div>
-                            </div>
-                        </div>
-                               
-                    </div>
-                </div>
+        <div class="card mb-3">
+            <h5 class="card-header">
+                {% if todolist.done == False %}
+                <button class="btn btn-link" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" 
+                    width="48" height="48" 
+                    viewBox="0 0 192 192" style=" fill:#000000;">
+                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none"></path><g><g id="surface1"><path d="M148,24h-104c-11.04688,0 -20,8.95312 -20,20v104c0,11.04688 8.95312,20 20,20h104c11.04688,0 20,-8.95312 20,-20v-104c0,-11.04688 -8.95312,-20 -20,-20z" fill="#e74c3c"></path><path d="M44,44h104v104h-104z" fill="#ffffff"></path></g></g></g></svg>
+                </button>
+                {% else %}
+                    <button class="btn btn-link" type="button" >
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                        width="48" height="48"
+                        viewBox="0 0 192 192"
+                        style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none"></path><g><g id="surface1"><path d="M148,24h-104c-11.04688,0 -20,8.95312 -20,20v104c0,11.04688 8.95312,20 20,20h104c11.04688,0 20,-8.95312 20,-20v-104c0,-11.04688 -8.95312,-20 -20,-20z" fill="#e74c3c"></path><path d="M44,44h104v104h-104z" fill="#ffffff"></path><path d="M53.42188,93.75l11.3125,-11.3125l33.9375,33.95312l-11.3125,11.3125z" fill="#038c8c"></path><path d="M75.71875,116.0625l50.92187,-50.92188l11.9375,11.9375l-50.90625,50.92188z" fill="#038c8c"></path></g></g></g></svg>
+                    </button>
+                {% endif %}
+                {% if todolist.due_date == None %}
+                    &nbsp;
+                {% else %}
+                    {{todolist.due_date}}
+                {% endif %}
+                {% if todolist.overdue == True %}
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                    width="48" height="48"
+                    viewBox="0 0 192 192"
+                    style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none"></path><g id="original-icon" fill="#e74c3c"><path d="M50.35938,12.01562l-36.76562,30.92188l10.29687,12.23438l36.76562,-30.92188zM141.64062,12.01562l-10.29687,12.23438l36.76562,30.92188l10.29687,-12.23438zM96,32c-39.768,0 -72,32.232 -72,72c0,39.768 32.232,72 72,72c39.768,0 72,-32.232 72,-72c0,-39.768 -32.232,-72 -72,-72zM96,48c30.928,0 56,25.072 56,56c0,30.928 -25.072,56 -56,56c-30.928,0 -56,-25.072 -56,-56c0,-30.928 25.072,-56 56,-56zM88,64v52.9375l36.42187,18.21874l7.15626,-14.3125l-27.57813,-13.78126v-43.0625z"></path></g></g></svg>
+                {% endif %}
+            </h5>
+            <div class="card-body">
+                <h3 class="card-title">{{todolist.title}}</h3>
+                <h5 class="card-text">{{todolist.content}}</h5>
             </div>
+            <div class="card-footer text-right">
+
+                {% for num in todolist.level %}
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                    width="48" height="48"
+                    viewBox="0 0 192 192"
+                    style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none"></path><g fill="#038c8c"><g id="surface1"><path d="M96,16.20312l25.95312,52.54688l58.04688,8.40625l-42,40.89062l9.90625,57.75l-51.90625,-27.25l-51.90625,27.25l9.90625,-57.75l-42,-40.89062l58.04688,-8.40625z"></path></g></g></g></svg>
+                {% endfor %}
+                <a href="{% url 'edit' todolist.id %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                    width="48" height="48"
+                    viewBox="0 0 192 192"
+                    style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none"></path><g fill="#038c8c"><path d="M147.3125,16c-2.048,0 -4.09625,0.78375 -5.65625,2.34375l-16,16l-11.3125,11.3125l-90.34375,90.34375v32h32l117.65625,-117.65625c3.128,-3.128 3.128,-8.1925 0,-11.3125l-20.6875,-20.6875c-1.56,-1.56 -3.60825,-2.34375 -5.65626,-2.34375zM147.3125,35.3125l9.37501,9.375l-10.34375,10.34375l-9.375,-9.375zM125.65625,56.96875l9.375,9.375l-85.65625,85.65625h-9.375v-9.375z"></path></g></g></svg>
+                </a> 
+                <a href="{% url 'destroy' todolist.id %}"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                    width="48" height="48"
+                    viewBox="0 0 192 192"
+                    style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none"></path><g fill="#e74c3c"><path d="M40,24c-8.84,0 -16,7.16 -16,16v112c0,8.84 7.16,16 16,16h112c8.84,0 16,-7.16 16,-16v-112c0,-8.84 -7.16,-16 -16,-16zM40,40h112v112h-112zM67.28125,56l-11.28125,11.28125l28.71875,28.71875l-28.71875,28.71875l11.28125,11.28125l28.71875,-28.71875l28.71875,28.71875l11.28125,-11.28125l-28.71875,-28.71875l28.71875,-28.71875l-11.28125,-11.28125l-28.71875,28.71875z"></path></g></g></svg>
+                </a>
+            </div>
+        </div>
         {% endfor %}
         
         </div>
