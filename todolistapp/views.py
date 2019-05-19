@@ -45,5 +45,10 @@ def destroy(request, todolist_id):
 
 def todolist_done(request, todolist_id):
     todolist = Todolist.objects.get(pk=todolist_id)
-    todolist.done = True
+    
+    if todolist.done is False:
+        todolist.done = True
+    else:
+        todolist.done = False
+    todolist.save()
     return redirect('/')

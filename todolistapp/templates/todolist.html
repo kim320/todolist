@@ -9,20 +9,24 @@
         {% for todolist in todolists.all %}
         <div class="card mb-3">
             <h5 class="card-header">
-                {% if todolist.done == False %}
-                <button class="btn btn-link" type="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" 
-                    width="48" height="48" 
-                    viewBox="0 0 192 192" style=" fill:#000000;">
-                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none"></path><g><g id="surface1"><path d="M148,24h-104c-11.04688,0 -20,8.95312 -20,20v104c0,11.04688 8.95312,20 20,20h104c11.04688,0 20,-8.95312 20,-20v-104c0,-11.04688 -8.95312,-20 -20,-20z" fill="#e74c3c"></path><path d="M44,44h104v104h-104z" fill="#ffffff"></path></g></g></g></svg>
-                </button>
+                {% if todolist.done is False %}
+                    <form action="{% url 'todolist_done' todolist.id %}"> 
+                        <button class="btn btn-link" type="submit" name="done">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" 
+                            width="48" height="48" 
+                            viewBox="0 0 192 192" style=" fill:#000000;">
+                            <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none"></path><g><g id="surface1"><path d="M148,24h-104c-11.04688,0 -20,8.95312 -20,20v104c0,11.04688 8.95312,20 20,20h104c11.04688,0 20,-8.95312 20,-20v-104c0,-11.04688 -8.95312,-20 -20,-20z" fill="#e74c3c"></path><path d="M44,44h104v104h-104z" fill="#ffffff"></path></g></g></g></svg>
+                        </button> 
+                    </form>
                 {% else %}
-                    <button class="btn btn-link" type="button" >
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                        width="48" height="48"
-                        viewBox="0 0 192 192"
-                        style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none"></path><g><g id="surface1"><path d="M148,24h-104c-11.04688,0 -20,8.95312 -20,20v104c0,11.04688 8.95312,20 20,20h104c11.04688,0 20,-8.95312 20,-20v-104c0,-11.04688 -8.95312,-20 -20,-20z" fill="#e74c3c"></path><path d="M44,44h104v104h-104z" fill="#ffffff"></path><path d="M53.42188,93.75l11.3125,-11.3125l33.9375,33.95312l-11.3125,11.3125z" fill="#038c8c"></path><path d="M75.71875,116.0625l50.92187,-50.92188l11.9375,11.9375l-50.90625,50.92188z" fill="#038c8c"></path></g></g></g></svg>
-                    </button>
+                    <form action="{% url 'todolist_done' todolist.id %}">
+                        <button class="btn btn-link" type="submit" name="done">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                            width="48" height="48"
+                            viewBox="0 0 192 192"
+                            style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,192v-192h192v192z" fill="none"></path><g><g id="surface1"><path d="M148,24h-104c-11.04688,0 -20,8.95312 -20,20v104c0,11.04688 8.95312,20 20,20h104c11.04688,0 20,-8.95312 20,-20v-104c0,-11.04688 -8.95312,-20 -20,-20z" fill="#e74c3c"></path><path d="M44,44h104v104h-104z" fill="#ffffff"></path><path d="M53.42188,93.75l11.3125,-11.3125l33.9375,33.95312l-11.3125,11.3125z" fill="#038c8c"></path><path d="M75.71875,116.0625l50.92187,-50.92188l11.9375,11.9375l-50.90625,50.92188z" fill="#038c8c"></path></g></g></g></svg>
+                        </button>
+                    </form>
                 {% endif %}
                 {% if todolist.due_date == None %}
                     &nbsp;
