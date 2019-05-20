@@ -15,11 +15,11 @@ def create(request):
     todolist = Todolist()
     todolist.title = request.GET['title']
     todolist.content = request.GET['content']
+    todolist.level=request.GET['level']
     if request.GET['due_date'] is '':
         todolist.due_date = None
     else:
         todolist.due_date = request.GET['due_date']
-    todolist.level=request.GET['level']
     todolist.save()
     return redirect('/')
 
@@ -28,11 +28,11 @@ def edit(request, todolist_id):
     if(request.method == 'POST'):
         todolist.title = request.POST['title']
         todolist.content = request.POST['content']
+        todolist.level = request.POST['level']
         if request.POST['due_date'] is '':
             todolist.due_date = None
         else:
             todolist.due_date = request.POST['due_date']
-        todolist.level = request.POST['level']
         todolist.save()
         return redirect('/')
 
