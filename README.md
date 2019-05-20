@@ -8,4 +8,7 @@ Features:
   - sign importance(option)
   - due date alarm(option)
 
-  ### Linux Install
+### 배포 URL 
+  - https://agile-taiga-92790.herokuapp.com/
+
+### Linux Install
